@@ -1,0 +1,42 @@
+mutation createCart($input: CartInput!) {
+  cartCreate(input: $input) {
+    cart {
+      id
+      buyerIdentity {
+        email
+      }
+      cost {
+        totalAmount {
+          amount
+          currencyCode
+        }
+        # The estimated amount, before taxes and discounts, for the customer to pay at checkout.
+        subtotalAmount {
+          amount
+          currencyCode
+        }
+        # The estimated tax amount for the customer to pay at checkout.
+        
+      }
+      lines(first: 100) {
+        nodes {
+          id
+          quantity
+          merchandise {
+            ... on ProductVariant {
+              title
+              price {
+                currencyCode
+                amount
+              }
+            }
+          }
+        }
+      }
+    }
+    userErrors {
+      message
+    }
+    
+  }
+}

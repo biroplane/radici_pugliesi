@@ -1,0 +1,159 @@
+mutation cartCreate {
+  cartCreate {
+    cart {
+      id
+      checkoutUrl
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+query getCart($cartId: ID!) {
+  cart(id: $cartId) {
+    checkoutUrl
+    cost {
+      totalAmount {
+        amount
+        currencyCode
+      }
+    }
+    lines(first: 100) {
+      nodes {
+         attributes {
+          key
+          value
+        }
+        id
+        quantity
+        estimatedCost {
+          totalAmount {
+            amount
+            currencyCode
+          }
+        }
+        merchandise {
+          ... on ProductVariant {
+            id
+            title
+            image{
+              url
+            }
+            product {
+              id
+              title
+              images(first: 1) {
+                nodes {
+                  src
+                  thumbnail: url(transform:{maxWidth:960})
+
+                }
+              }
+            }
+            priceV2 {
+              amount
+              currencyCode
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+mutation addToCart($cartId: ID!, $variantId: ID!, $attributes: [AttributeInput!]) {
+  cartLinesAdd(
+    cartId: $cartId
+    lines: [{ quantity: 1, merchandiseId: $variantId, attributes: $attributes }]
+
+  ) {
+    cart {
+      lines(first: 100) {
+        nodes {
+          attributes {
+            key
+            value
+          }
+          id
+          quantity
+          estimatedCost {
+            subtotalAmount {
+              amount
+              currencyCode
+            }
+            totalAmount {
+              amount
+              currencyCode
+            }
+          }
+          merchandise {
+            ... on ProductVariant {
+              id
+              title
+              product {
+                title
+              }
+              priceV2 {
+                amount
+                currencyCode
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
+  cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+    cart {
+      lines(first: 100) {
+        nodes {
+          quantity
+          estimatedCost {
+            subtotalAmount {
+              amount
+              currencyCode
+            }
+            totalAmount {
+              amount
+              currencyCode
+            }
+          }
+          merchandise {
+            ... on ProductVariant {
+              id
+              title
+              product {
+                title
+              }
+              priceV2 {
+                amount
+                currencyCode
+              }
+            }
+          }
+        }
+      }
+    }
+    userErrors{
+      field
+      message
+    }
+
+  }
+}
+
+mutation cartLinesUpdate($cartId: ID!, $lines:[CartLineUpdateInput!]!){
+  cartLinesUpdate(cartId: $cartId, lines:$lines){
+    cart{
+      id
+    }
+    userErrors{
+      field
+      message
+    }
+  }
+}

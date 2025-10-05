@@ -1,0 +1,94 @@
+
+
+
+query getCollections($first: Int!, $query:String){
+
+  collections(first:$first,query:$query){
+
+      nodes{
+        id
+        title
+        description
+        descriptionHtml
+        handle
+        image{
+          id
+          src
+        }
+        products(first:5){
+
+            nodes{
+              id
+              title
+              handle
+            }
+
+        }
+      }
+    
+  }
+}
+
+query getCollectionByHandle($handle:String!, $first:Int, $sortKey:ProductCollectionSortKeys, $reverse:Boolean){
+  collection(handle:$handle){
+    id
+  title
+  description
+  descriptionHtml
+  handle
+  image{
+    id
+    src
+  }
+  products(first:$first, sortKey:$sortKey, reverse:$reverse){
+
+      nodes{
+        id
+        images(first:1){
+
+            nodes{
+              src
+              thumbnail: url(transform:{maxWidth:960})
+
+            }
+          
+        }
+        totalInventory
+        title
+        description
+        handle
+        old:compareAtPriceRange{
+        price:maxVariantPrice{
+          amount
+        }
+      }
+      actual:priceRange {
+        price:maxVariantPrice {
+          amount
+          currencyCode
+        }
+      }
+        variants(first: 5) {
+
+            nodes {
+              id
+              title
+              actual: price {
+                amount
+                currencyCode
+              }
+              old: compareAtPrice {
+                amount
+                currencyCode
+              }
+            }
+
+        }
+        tags
+      }
+    
+  }
+
+  }
+}
+

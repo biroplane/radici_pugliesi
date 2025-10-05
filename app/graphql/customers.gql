@@ -1,0 +1,64 @@
+mutation customerCreate($input: CustomerCreateInput!) {
+  customerCreate(input: $input) {
+    customerUserErrors {
+      code
+      field
+      message
+    }
+    	customer {
+      id
+      email
+      phone
+      acceptsMarketing
+      firstName
+      lastName
+
+    }
+  }
+}
+
+
+
+mutation customerAccessTokenCreate ($input:CustomerAccessTokenCreateInput!) {
+  customerAccessTokenCreate(input:$input) {
+    customerAccessToken {
+      accessToken
+    }
+    customerUserErrors {
+      message
+    }
+  }
+}
+
+query getCustomer($accessToken: String!) {
+  customer(customerAccessToken: $accessToken) {
+    email
+    addresses(first: 10) {
+      nodes {
+        firstName
+        formatted(withCompany: false, withName: true)
+        phone
+        province
+        provinceCode
+        zip
+        countryCodeV2
+        formattedArea
+        id
+        lastName
+        latitude
+        longitude
+        name
+      }
+    }
+    acceptsMarketing
+    createdAt
+    displayName
+    firstName
+    numberOfOrders
+    phone
+    tags
+    lastName
+    id
+  }
+  
+}

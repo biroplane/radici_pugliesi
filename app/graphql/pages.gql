@@ -1,0 +1,29 @@
+query getBlogPages{
+  pages(first:100){
+
+      nodes{
+        body
+        handle
+        id
+        title
+        seo{
+          title
+          description
+        }
+      }
+
+  }
+}
+
+query getPageByHandle($handle:String){
+  page(handle:$handle){
+    body
+    handle
+    id
+    title
+    seo{
+      title
+      description
+    }
+  }
+}

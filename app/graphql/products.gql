@@ -1,0 +1,159 @@
+
+query Products($first: Int!, $query: String, $after:String, $sortKey: ProductSortKeys, $reverse:Boolean) {
+  products(first: $first, query: $query, after:$after,sortKey:$sortKey, reverse:$reverse) {
+    pageInfo{
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+     nodes {
+      id
+      seo {
+        title
+        description
+      }
+      images(first: 10) {
+        nodes {
+          url
+          thumbnail: url(transform: {maxWidth: 960})
+        }
+      }
+      title
+      description
+      descriptionHtml
+      handle
+      totalInventory
+      old:compareAtPriceRange{
+        price:maxVariantPrice{
+          amount
+        }
+      }
+      actual:priceRange {
+        price:maxVariantPrice {
+          amount
+          currencyCode
+        }
+      }
+      metafields(
+        identifiers: [{namespace: "descriptors", key: "care_guide"}, {namespace: "descriptors", key: "customization"}, {namespace: "custom", key: "packaging"}]
+      ) {
+        value
+        key
+        description
+      }
+      collections(first: 5) {
+        nodes {
+          title
+          handle
+        }
+      }
+      tags
+      availableForSale
+      variants(first: 5) {
+        nodes {
+          id
+          title
+          availableForSale
+          actual: price {
+            amount
+            currencyCode
+          }
+          old: compareAtPrice {
+            amount
+            currencyCode
+          }
+        }
+      }
+    }
+  }
+}
+
+query getProductByHandle($handle: String) {
+  product(handle: $handle) {
+    id
+    seo {
+        title
+        description
+      }
+    images(first: 10) {
+      nodes {
+        src
+        thumbnail: url(transform:{maxWidth:960})
+
+      }
+    }
+    title
+    description
+    descriptionHtml
+    handle
+    totalInventory
+  old:compareAtPriceRange{
+        price:maxVariantPrice{
+          amount
+        }
+      }
+    actual: priceRange {
+      price: maxVariantPrice {
+        amount
+        currencyCode
+      }
+    }
+    metafields(identifiers:[{namespace: "descriptors", key: "care_guide"},{namespace: "descriptors", key: "customization"},{namespace: "custom", key: "packaging"}]) {
+  
+        value
+        key
+        description
+      }
+    rating_count: metafield(namespace: "reviews", key: "rating_count") {
+      value
+      
+    }
+    rating: metafield(namespace: "reviews", key: "rating") {
+      value
+    }
+    collections(first: 5) {
+      nodes {
+        title
+        handle
+      }
+    }
+    variants(first: 25) {
+      nodes {
+        id
+        title
+        availableForSale
+        price {
+          amount
+          currencyCode
+        }
+        image{
+          url
+        }
+      }
+    }
+    tags
+  }
+}
+
+query getProductRecommendations($id: ID!) {
+  productRecommendations(productId: $id) {
+    id
+    images(first: 1) {
+      nodes {
+        src
+        thumbnail: url(transform:{maxWidth:240})
+
+      }
+    }
+    title
+    description
+    handle
+    actual:priceRange {
+      price:maxVariantPrice {
+        amount
+        currencyCode
+      }
+    }
+  }
+}
