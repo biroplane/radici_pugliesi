@@ -1,0 +1,38 @@
+{
+  "format": "custom",
+  "id": "social_links",
+  "label": "Social Links",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "items": {
+        "type": "Group",
+        "config": {
+          "label": "Items",
+          "repeat": true,
+          "fields": {
+            "icon": {
+              "type": "Text",
+              "config": {
+                "label": "Icon",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

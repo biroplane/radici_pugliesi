@@ -29,20 +29,59 @@
   --color-secondary-900: oklch(0.36 0.039 248.95);
   --color-secondary-950: oklch(0.25 0.027 246.75);
 
-  --font-playwrite-mexico: 'Playwrite MX', cursive;
-  --font-rock-salt: 'Rock Salt', cursive;
-  --font-ibm: 'IBM Plex Mono', sans-serif;
-  --font-quicksand: 'Quicksand', sans-serif;
+  --font-body: 'IBM Plex Mono', sans-serif;
+  --font-heading: 'Nordminne', script;
+  
+}
 
   
-  --font-body: var(--font-ibm);
-  --font-accent: var(--font-quicksand);
-  --font-heading: var(--font-rock-salt);
-  --font-heading-accent: var(--font-playwrite-mexico);
+  @utility slice-title {
+    font-family: var(--font-heading);
+    line-height: 3rem;
+    font-size: var(--text-xl);
+    text-wrap: balance;
+  line-height: 1;
+  margin-bottom: var(--spacing-6);
+  
+  @variant sm {
+    font-size: var(--text-4xl);
+  }
+  
+  @variant lg {
+    font-size: var(--text-5xl);
+  }
+  
+  @variant xl {
+    font-size: var(--text6xl);
+  }
+}
 
 
+@utility container {
+  padding-inline: var(--spacing-6);
+  margin-inline: auto;
+  
+  @variant sm {
+    padding-inline: 20px;
+  }
+  
+  @variant lg {
+    padding-inline: 80px;
+  }
+  
+  @variant xl {
+    padding-inline: 120px;
+  }
+}
+
+@utility container{
+  
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
 }
 
 body{
-  @apply font-body;
+  @apply font-body bg-neutral-100;
 }

@@ -4,5 +4,31 @@ import { defineAsyncComponent } from "vue";
 import { defineSliceZoneComponents } from "@prismicio/vue";
 
 export const components = defineSliceZoneComponents({
+  alternate_grid: defineAsyncComponent(
+    () => import("./AlternateGrid/index.vue"),
+  ),
+  cart: defineAsyncComponent(() => import("./Cart/index.vue")),
+  collection_grid: defineAsyncComponent(
+    () => import("./CollectionGrid/index.vue"),
+  ),
+  contact_form: defineAsyncComponent(() => import("./ContactForm/index.vue")),
+  customer_logos: defineAsyncComponent(
+    () => import("./CustomerLogos/index.vue"),
+  ),
+  gallery: defineAsyncComponent(() => import("./Gallery/index.vue")),
+  google_reviews: defineAsyncComponent(
+    () => import("./GoogleReviews/index.vue"),
+  ),
   hero: defineAsyncComponent(() => import("./Hero/index.vue")),
+  icon_feature_list: defineAsyncComponent(
+    () => import("./IconFeatureList/index.vue"),
+  ),
+  items_grid: defineAsyncComponent(() => import("./ItemsGrid/index.vue")),
+  marquee: defineAsyncComponent(() => import("./Marquee/index.vue")),
+  menu_item: defineAsyncComponent(() => import("./MenuItem/index.vue")),
+  newsletter: defineAsyncComponent(() => import("./Newsletter/index.vue")),
+  package_list: defineAsyncComponent(() => import("./PackageList/index.vue")),
+  products_grid: defineAsyncComponent(() => import("./ProductsGrid/index.vue")),
+  testimonial_list: defineAsyncComponent(() => import("./Reviews/index.vue")),
+  warning: defineAsyncComponent(() => import("./Warning/index.vue")),
 });

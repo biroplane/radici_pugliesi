@@ -1,0 +1,33 @@
+{
+  "id": "collection_grid",
+  "type": "SharedSlice",
+  "name": "CollectionGrid",
+  "description": "CollectionGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "count": {
+          "type": "Number",
+          "config": {
+            "label": "Count",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

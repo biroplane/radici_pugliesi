@@ -1,0 +1,59 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Replied"
+						}
+					}
+				]
+			},
+			"testimonials": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"rating",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "36",
+									"type": "Number"
+								}
+							],
+							[
+								"testimonial_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "possible",
+									"type": "Text"
+								}
+							],
+							[
+								"testimonial_description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "space",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"count": {
+				"__TYPE__": "FieldContent",
+				"value": "22",
+				"type": "Number"
+			}
+		},
+		"items": []
+	}
+]

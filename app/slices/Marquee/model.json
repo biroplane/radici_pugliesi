@@ -1,0 +1,51 @@
+{
+  "id": "marquee",
+  "type": "SharedSlice",
+  "name": "Marquee",
+  "description": "Marquee",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "strong,em,paragraph,hyperlink"
+          }
+        },
+        "background_color": {
+          "type": "Select",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "light",
+              "dark"
+            ],
+            "default_value": "primary"
+          }
+        },
+        "reverse": {
+          "type": "Boolean",
+          "config": {
+            "label": "Reverse",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

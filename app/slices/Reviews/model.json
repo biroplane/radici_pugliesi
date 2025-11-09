@@ -1,0 +1,58 @@
+{
+  "type": "SharedSlice",
+  "id": "testimonial_list",
+  "name": "Reviews",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Basic testimonial list with heading, repeatable rating, title, and description fields.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2",
+            "label": "Title"
+          }
+        },
+        "testimonials": {
+          "type": "Group",
+          "config": {
+            "label": "Testimonials",
+            "fields": {
+              "rating": {
+                "type": "Number",
+                "config": {
+                  "label": "Rating"
+                }
+              },
+              "testimonial_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Testimonial Title"
+                }
+              },
+              "testimonial_description": {
+                "type": "Text",
+                "config": {
+                  "label": "Testimonial Description"
+                }
+              }
+            }
+          }
+        },
+        "count": {
+          "type": "Number",
+          "config": {
+            "label": "Count",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

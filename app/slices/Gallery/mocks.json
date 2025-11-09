@@ -1,0 +1,140 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Alcune delle nostre bomboniere per eventi"
+			},
+			"per_page": {
+				"__TYPE__": "FieldContent",
+				"type": "Number",
+				"value": "5"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE3MDU4NzE0MDl8MA&ixlib=rb-4.0.3&q=85",
+							"alt": "ripe pineapple fruit",
+							"origin": {
+								"id": "nAOZCYcLND8",
+								"url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE3MDU4NzE0MDl8MA&ixlib=rb-4.0.3&q=85",
+								"width": 2749,
+								"height": 4124
+							},
+							"width": 2749,
+							"height": 4124,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"thumbnails": {}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"url": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxmcnVpdHxlbnwwfHx8fDE3MDU4NzE0MDl8MA&ixlib=rb-4.0.3&q=85",
+							"alt": "red strawberry fruit with white background",
+							"origin": {
+								"id": "xnRg3xDcNnE",
+								"url": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxmcnVpdHxlbnwwfHx8fDE3MDU4NzE0MDl8MA&ixlib=rb-4.0.3&q=85",
+								"width": 7173,
+								"height": 10041
+							},
+							"width": 7173,
+							"height": 10041,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"thumbnails": {}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"url": "https://images.unsplash.com/photo-1528825871115-3581a5387919?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxmcnVpdHxlbnwwfHx8fDE3MDU4NzE0MDl8MA&ixlib=rb-4.0.3&q=85",
+							"alt": "half peeled banana fruit",
+							"origin": {
+								"id": "0v_1TPz1uXw",
+								"url": "https://images.unsplash.com/photo-1528825871115-3581a5387919?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxmcnVpdHxlbnwwfHx8fDE3MDU4NzE0MDl8MA&ixlib=rb-4.0.3&q=85",
+								"width": 2791,
+								"height": 3907
+							},
+							"width": 2791,
+							"height": 3907,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"thumbnails": {}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"url": "https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMHx8ZnJ1aXR8ZW58MHx8fHwxNzA1ODcxNDA5fDA&ixlib=rb-4.0.3&q=85",
+							"alt": "orange sliced papaya",
+							"origin": {
+								"id": "yPI38imbQSI",
+								"url": "https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMHx8ZnJ1aXR8ZW58MHx8fHwxNzA1ODcxNDA5fDA&ixlib=rb-4.0.3&q=85",
+								"width": 3213,
+								"height": 4819
+							},
+							"width": 3213,
+							"height": 4819,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	}
+]

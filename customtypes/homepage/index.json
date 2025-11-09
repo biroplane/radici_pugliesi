@@ -11,6 +11,48 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "items_grid": {
+              "type": "SharedSlice"
+            },
+            "warning": {
+              "type": "SharedSlice"
+            },
+            "package_list": {
+              "type": "SharedSlice"
+            },
+            "customer_logos": {
+              "type": "SharedSlice"
+            },
+            "contact_form": {
+              "type": "SharedSlice"
+            },
+            "newsletter": {
+              "type": "SharedSlice"
+            },
+            "gallery": {
+              "type": "SharedSlice"
+            },
+            "google_reviews": {
+              "type": "SharedSlice"
+            },
+            "alternate_grid": {
+              "type": "SharedSlice"
+            },
+            "products_grid": {
+              "type": "SharedSlice"
+            },
+            "testimonial_list": {
+              "type": "SharedSlice"
+            },
+            "marquee": {
+              "type": "SharedSlice"
+            },
+            "icon_feature_list": {
+              "type": "SharedSlice"
+            },
+            "collection_grid": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             }

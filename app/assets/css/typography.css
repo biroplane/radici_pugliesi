@@ -1,0 +1,9 @@
+
+@font-face {
+  font-family: 'Nordminne';
+  src: url('../fonts/nordminne.woff2') format('woff2'),
+       url('../fonts/nordminne.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
