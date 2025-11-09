@@ -1,0 +1,87 @@
+{
+  "type": "SharedSlice",
+  "id": "alternate_grid",
+  "name": "AlternateGrid",
+  "variations": [
+    {
+      "id": "image_left_text_right",
+      "name": "Image left",
+      "description": "Layout with image on the left and a text call-to-action block (title, description, button) on the right.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "side_image": {
+          "type": "Image",
+          "config": {
+            "label": "Side Image"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2",
+            "label": "Title"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "cta_button": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Button",
+            "allowText": true,
+            "repeat": false,
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "imageRight",
+      "name": "Image right",
+      "description": "Layout with image on the left and a text call-to-action block (title, description, button) on the right.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "side_image": {
+          "type": "Image",
+          "config": {
+            "label": "Side Image"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2",
+            "label": "Title"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "cta_button": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Button",
+            "allowText": true,
+            "repeat": false,
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

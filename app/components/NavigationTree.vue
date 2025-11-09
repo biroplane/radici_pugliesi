@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { NavigationMenuItem } from "@nuxt/ui";
 // const { data: items } = await useStorefrontData(
 //   "menu",
 //   `#graphql
@@ -26,9 +27,26 @@
 //         .filter((item) => item.to !== null) ?? [],
 //   }
 // );
-const items: any[] = [];
+const items: NavigationMenuItem[] = [
+  {
+    label: "Home",
+    to: "/",
+  },
+  {
+    label: "Shop",
+    to: "/products",
+  },
+  {
+    label: "Categorie",
+    to: "/collections",
+  },
+  {
+    label: "Contatti",
+    to: "/",
+  },
+];
 </script>
 
 <template>
-  <UNavigationMenu :items="items" />
+  <UNavigationMenu :items="items" variant="link" />
 </template>

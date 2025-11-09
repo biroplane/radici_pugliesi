@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "recall",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Velit culpa qui ex voluptate dolore tempor velit irure cupidatat eiusmod amet elit sint. Velit dolor ea aute eu sint laborum cillum. Mollit nisi anim ullamco qui quis id labore do consectetur."
+						}
+					}
+				]
+			},
+			"item_count": {
+				"__TYPE__": "FieldContent",
+				"value": "58",
+				"type": "Number"
+			}
+		},
+		"items": []
+	}
+]

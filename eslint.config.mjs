@@ -20,7 +20,8 @@ export default antfu({
 
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
-    'no-console': 'off'
+    'no-console': 'off',
+    'antfu/no-top-level-await': 'off',
   },
 
   // Disable jsonc and yaml support
