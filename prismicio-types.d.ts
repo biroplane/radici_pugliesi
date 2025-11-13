@@ -69,6 +69,144 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+type BlogListDocumentDataSlicesSlice = NewsletterSlice | CustomerLogosSlice;
+
+/**
+ * Content for Blog List documents
+ */
+interface BlogListDocumentData {
+  /**
+   * Slice Zone field in *Blog List*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_list.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<BlogListDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_list.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_list.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog List*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_list.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog List document from Prismic
+ *
+ * - **API ID**: `blog_list`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogListDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BlogListDocumentData>,
+    "blog_list",
+    Lang
+  >;
+
+type BlogPostDocumentDataSlicesSlice =
+  | HeroSlice
+  | WarningSlice
+  | MarqueeSlice
+  | AlternateGridSlice
+  | CustomerLogosSlice
+  | CollectionGridSlice
+  | NewsletterSlice
+  | GallerySlice;
+
+/**
+ * Content for Blog Post documents
+ */
+interface BlogPostDocumentData {
+  /**
+   * Slice Zone field in *Blog Post*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_post.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_post.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog Post document from Prismic
+ *
+ * - **API ID**: `blog_post`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPostDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<BlogPostDocumentData>,
+    "blog_post",
+    Lang
+  >;
+
 /**
  * Content for Collection documents
  */
@@ -120,6 +258,86 @@ export type CollectionDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<CollectionDocumentData>,
     "collection",
+    Lang
+  >;
+
+type CollectionsListDocumentDataSlicesSlice =
+  | HeroSlice
+  | TestimonialListSlice
+  | WarningSlice
+  | AlternateGridSlice
+  | ProductsGridSlice
+  | ContactFormSlice
+  | CustomerLogosSlice
+  | PackageListSlice
+  | MarqueeSlice
+  | IconFeatureListSlice
+  | CollectionGridSlice
+  | NewsletterSlice
+  | GoogleReviewsSlice
+  | ItemsGridSlice
+  | GallerySlice;
+
+/**
+ * Content for Collections List documents
+ */
+interface CollectionsListDocumentData {
+  /**
+   * Slice Zone field in *Collections List*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collections_list.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<CollectionsListDocumentDataSlicesSlice> /**
+   * Meta Title field in *Collections List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: collections_list.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Collections List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: collections_list.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Collections List*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collections_list.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Collections List document from Prismic
+ *
+ * - **API ID**: `collections_list`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CollectionsListDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CollectionsListDocumentData>,
+    "collections_list",
     Lang
   >;
 
@@ -315,6 +533,166 @@ export type ProductDocument<Lang extends string = string> =
     Lang
   >;
 
+type ProductsListDocumentDataSlicesSlice =
+  | HeroSlice
+  | WarningSlice
+  | ProductsGridSlice
+  | TestimonialListSlice
+  | PackageListSlice
+  | CustomerLogosSlice
+  | MarqueeSlice
+  | IconFeatureListSlice
+  | ContactFormSlice
+  | CollectionGridSlice
+  | AlternateGridSlice
+  | NewsletterSlice
+  | ItemsGridSlice
+  | GoogleReviewsSlice
+  | GallerySlice;
+
+/**
+ * Content for Products List documents
+ */
+interface ProductsListDocumentData {
+  /**
+   * Slice Zone field in *Products List*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: products_list.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<ProductsListDocumentDataSlicesSlice> /**
+   * Meta Title field in *Products List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: products_list.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Products List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: products_list.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Products List*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: products_list.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Products List document from Prismic
+ *
+ * - **API ID**: `products_list`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductsListDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ProductsListDocumentData>,
+    "products_list",
+    Lang
+  >;
+
+type SinglePageDocumentDataSlicesSlice =
+  | HeroSlice
+  | ProductsGridSlice
+  | MarqueeSlice
+  | PackageListSlice
+  | WarningSlice
+  | TestimonialListSlice
+  | IconFeatureListSlice
+  | AlternateGridSlice
+  | CustomerLogosSlice
+  | CollectionGridSlice
+  | ContactFormSlice
+  | NewsletterSlice
+  | ItemsGridSlice
+  | GallerySlice
+  | GoogleReviewsSlice;
+
+/**
+ * Content for Single Page documents
+ */
+interface SinglePageDocumentData {
+  /**
+   * Slice Zone field in *Single Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<SinglePageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Single Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: single_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Single Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: single_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Single Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Single Page document from Prismic
+ *
+ * - **API ID**: `single_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SinglePageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SinglePageDocumentData>,
+    "single_page",
+    Lang
+  >;
+
 /**
  * Item in *Social Links → Items*
  */
@@ -373,10 +751,15 @@ export type SocialLinksDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | BlogListDocument
+  | BlogPostDocument
   | CollectionDocument
+  | CollectionsListDocument
   | HomepageDocument
   | MainNavigationDocument
   | ProductDocument
+  | ProductsListDocument
+  | SinglePageDocument
   | SocialLinksDocument;
 
 /**
@@ -1990,8 +2373,17 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogListDocument,
+      BlogListDocumentData,
+      BlogListDocumentDataSlicesSlice,
+      BlogPostDocument,
+      BlogPostDocumentData,
+      BlogPostDocumentDataSlicesSlice,
       CollectionDocument,
       CollectionDocumentData,
+      CollectionsListDocument,
+      CollectionsListDocumentData,
+      CollectionsListDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -2001,6 +2393,12 @@ declare module "@prismicio/client" {
       ProductDocument,
       ProductDocumentData,
       ProductDocumentDataSlicesSlice,
+      ProductsListDocument,
+      ProductsListDocumentData,
+      ProductsListDocumentDataSlicesSlice,
+      SinglePageDocument,
+      SinglePageDocumentData,
+      SinglePageDocumentDataSlicesSlice,
       SocialLinksDocument,
       SocialLinksDocumentData,
       SocialLinksDocumentDataItemsItem,

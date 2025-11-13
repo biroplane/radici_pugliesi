@@ -1,52 +1,18 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
-// const { data: items } = await useStorefrontData(
-//   "menu",
-//   `#graphql
-//   query GetNavigation($handle: String!) {
-//     menu(handle: $handle) {
-//       items {
-//         ... on MenuItem {
-//           title
-//           url
-//         }
-//       }
-//     }
-//   }
-// `,
-//   {
-//     variables: {
-//       handle: "main-menu",
-//     },
-//     transform: (data) =>
-//       data.menu?.items
-//         ?.map((item) => ({
-//           label: item.title,
-//           to: item.url || undefined,
-//         }))
-//         .filter((item) => item.to !== null) ?? [],
-//   }
-// );
-const items: NavigationMenuItem[] = [
-  {
-    label: "Home",
-    to: "/",
-  },
-  {
-    label: "Shop",
-    to: "/products",
-  },
-  {
-    label: "Categorie",
-    to: "/collections",
-  },
-  {
-    label: "Contatti",
-    to: "/",
-  },
-];
+import { components } from "~/slices";
+
+const prismic = usePrismic();
+const { data: navigation } = await useAsyncData("navigation", () =>
+  prismic.client.getSingle("main_navigation")
+);
 </script>
 
 <template>
-  <UNavigationMenu :items="items" variant="link" />
+  <SliceZone
+    wrapper="ul"
+    :slices="navigation?.data.slices ?? []"
+    :components="components"
+    class="flex gap-4"
+  />
 </template>

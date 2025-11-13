@@ -17,7 +17,8 @@
       <NavigationTree />
     </div>
     <template #right>
-      <UAvatar alt="Gaetano Vallarelli" />
+      <SearchBar />
+      <Cart />
     </template>
   </UHeader>
 

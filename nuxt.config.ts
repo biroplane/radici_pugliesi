@@ -27,9 +27,13 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/prismic',
     '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
     'nuxt-graphql-client',
     '@vueuse/nuxt',
   ],
+  router: {
+    options: { scrollBehaviorType: 'smooth' },
+  },
   runtimeConfig: {
     public: {
       'GQL_HOST': '123',
@@ -56,10 +60,19 @@ export default defineNuxtConfig({
     clientConfig: {
       routes: [
         { type: 'homepage', path: '/' },
+        { type: 'blog_list', path: '/blog' },
+        { type: 'blog_post', path: '/blog/:uid' },
+        { type: 'collections_list', path: '/collections/all' },
+        { type: 'products_list', path: '/products' },
+        { type: 'single_page', path: '/:uid' },
       ],
     },
   },
   vite: {
+    esbuild: {
+      drop:
+        process.env.NODE_ENV === 'development' ? [] : ['console', 'debugger'],
+    },
     plugins: [
       tailwindcss(),
     ],

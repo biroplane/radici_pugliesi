@@ -15,7 +15,7 @@ defineProps(
     class="py-12"
     :class="[slice.primary.color]"
   >
-    <div class="container">
+    <div class="container px-4 md:px-12">
       <h2 class="slice-title pb-8">
         {{ slice.primary.title }}
       </h2>

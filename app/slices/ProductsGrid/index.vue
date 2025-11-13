@@ -48,7 +48,13 @@ function sortProducts(e: any) {
             </div>
             <div class="">
               <ProductSort @select="sortProducts" />
-              <UButton variant="link" size="xl" color="neutral" class="underline">
+              <UButton
+                to="/products"
+                variant="link"
+                size="xl"
+                color="neutral"
+                class="underline"
+              >
                 View All
               </UButton>
             </div>
