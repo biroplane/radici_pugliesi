@@ -23,6 +23,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "58",
 				"type": "Number"
+			},
+			"search_bar": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []

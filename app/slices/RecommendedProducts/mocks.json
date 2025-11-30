@@ -1,0 +1,34 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"shopify_product_id": {
+				"__TYPE__": "FieldContent",
+				"value": "tobacco",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "hang",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Non esse in magna consectetur eiusmod esse exercitation aute et esse tempor dolor voluptate. Amet occaecat laborum sit cillum commodo aliqua mollit ut tempor proident excepteur minim id. Est officia exercitation non sint eu sint minim ut duis."
+						}
+					}
+				]
+			},
+			"use_route": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": []
+	}
+]

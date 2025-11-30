@@ -31,6 +31,9 @@
     <div class="">
       Iscriviti alla newsletter
       <NewsletterField />
+      <br />
+
+      <PaymentMethodList />
     </div>
   </footer>
 </template>
