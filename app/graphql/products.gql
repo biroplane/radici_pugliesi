@@ -141,7 +141,7 @@ query getProductRecommendations($id: ID!) {
     id
     images(first: 1) {
       nodes {
-        src
+        url
         thumbnail: url(transform:{maxWidth:240})
 
       }
@@ -149,6 +149,11 @@ query getProductRecommendations($id: ID!) {
     title
     description
     handle
+    collections(first:1){
+      nodes{
+        title
+      }
+    }
     actual:priceRange {
       price:maxVariantPrice {
         amount

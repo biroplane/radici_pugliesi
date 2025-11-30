@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const productStore = useProductStore();
+</script>
 
 <template>
   <UHeader mode="slideover">
@@ -17,7 +19,14 @@
       <NavigationTree />
     </div>
     <template #right>
-      <SearchBar />
+      <ClientOnly>
+        <UButton
+          v-if="productStore.wishlist?.length > 0"
+          icon="i-mingcute-heart-line"
+          variant="ghost"
+        />
+      </ClientOnly>
+      <TopSearchBar />
       <Cart />
     </template>
   </UHeader>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const cartStore = useCartStore();
 function setFavIcon() {
   const isDark =
     window?.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -7,8 +8,9 @@ function setFavIcon() {
   useFavicon(favicon.value, { rel: "favicon" });
 }
 
-onMounted(() => {
+onMounted(async () => {
   setFavIcon();
+  await cartStore.initializeCart();
 });
 </script>
 

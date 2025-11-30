@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   css: ['~/assets/css/app.css', '~/assets/css/typography.css'],
   devtools: { enabled: true },
+  ssr: true,
   app: {
     head: {
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
@@ -13,13 +14,14 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/svg', href: '/logo_white.svg' },
       ],
     },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
   fonts: {
     families: [
       { name: 'IBM Plex Mono', provider: 'google' },
       { name: 'Croissant One', provider: 'google' },
-      // { name: 'Playwrite MX', provider: 'google' },
-      // { name: 'Quicksand', provider: 'google' },
+      { name: 'Libre Baskerville', provider: 'google' },
+      { name: 'Style Script', provider: 'google' },
     ],
   },
   modules: [
@@ -30,6 +32,7 @@ export default defineNuxtConfig({
     'pinia-plugin-persistedstate/nuxt',
     'nuxt-graphql-client',
     '@vueuse/nuxt',
+    '@stefanobartoletti/nuxt-social-share',
   ],
   router: {
     options: { scrollBehaviorType: 'smooth' },
@@ -51,6 +54,9 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+  socialShare: {
+    baseUrl: import.meta.dev ? 'http://localhost:3000' : import.meta.env.BASE_URL,
   },
   ui: {
     colorMode: false,

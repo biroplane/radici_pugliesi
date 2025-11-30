@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-rows-[4rem_auto] h-dvh overflow-y-hidden">
+  <div class="">
     <AppHeader class="" />
-    <div class="overflow-y-auto">
+    <div class="">
       <div class="">
         <slot />
       </div>

@@ -4,8 +4,8 @@
 		"variation": "default",
 		"primary": {
 			"link": {
-				"__TYPE__": "LinkContent",
 				"key": "26f7f142-a0d0-46fa-b60f-6bd4534a1d34",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "http://google.com",
@@ -14,5 +14,45 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "withChildren",
+		"primary": {
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "fort",
+				"type": "Text"
+			},
+			"children": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "b14bc4df-6e08-4279-8804-8dc4458a5ffc",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "blood",
+										"variant": "Secondary"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

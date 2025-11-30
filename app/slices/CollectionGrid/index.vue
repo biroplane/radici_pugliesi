@@ -3,7 +3,7 @@ import type { Content } from "@prismicio/client";
 
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
-defineProps(
+const props = defineProps(
   getSliceComponentProps<Content.CollectionGridSlice>([
     "slice",
     "index",
@@ -12,7 +12,7 @@ defineProps(
   ])
 );
 const productStore = useProductStore();
-await productStore.loadCollections(3);
+await productStore.loadCollections(props.slice.primary.count || 3);
 const { collections } = storeToRefs(productStore);
 console.log("Collections", collections.value);
 </script>
@@ -36,7 +36,7 @@ console.log("Collections", collections.value);
           <div class="hover:scale-110 transition-transform grid-stack group duration-300">
             <img
               :src="collection.image?.src"
-              class="stacked w-full aspect-video object-cover"
+              class="stacked w-full aspect-video object-contain"
             />
             <div
               class="stacked flex items-end justify-start text-2xl group-hover:scale-90 transition-transform"

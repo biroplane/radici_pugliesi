@@ -17,7 +17,7 @@ export const useCartStore = defineStore(
         return acc + curr.quantity
       }, 0),
     )
-    const CART_ID = 'shopify:doncactus:cart'
+    const CART_ID = 'shopify:radicipugliesi:cart'
     const existingCartId: Ref<string | undefined | null> = ref(undefined)
     const setCart = (_cart: any) => {
       console.log('%cSET  CART ', 'color:tomato;font-size:2rem', _cart)

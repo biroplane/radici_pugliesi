@@ -34,6 +34,15 @@
             "label": "Item Count",
             "placeholder": ""
           }
+        },
+        "search_bar": {
+          "type": "Boolean",
+          "config": {
+            "label": "search bar",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {}

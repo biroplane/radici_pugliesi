@@ -341,6 +341,59 @@ export type CollectionsListDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Faq → Items*
+ */
+export interface FaqDocumentDataItemsItem {
+  /**
+   * Summary field in *Faq → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[].summary
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  summary: prismic.KeyTextField;
+
+  /**
+   * Body field in *Faq → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[].body
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Content for Faq documents
+ */
+interface FaqDocumentData {
+  /**
+   * Items field in *Faq*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  items: prismic.GroupField<Simplify<FaqDocumentDataItemsItem>>;
+}
+
+/**
+ * Faq document from Prismic
+ *
+ * - **API ID**: `faq`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FaqDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<FaqDocumentData>, "faq", Lang>;
+
 type HomepageDocumentDataSlicesSlice =
   | ItemsGridSlice
   | WarningSlice
@@ -452,84 +505,6 @@ export type MainNavigationDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<MainNavigationDocumentData>,
     "main_navigation",
-    Lang
-  >;
-
-type ProductDocumentDataSlicesSlice = never;
-
-/**
- * Content for Product documents
- */
-interface ProductDocumentData {
-  /**
-   * Title field in *Product*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *Product*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Image field in *Product*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Shopify Id field in *Product*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.shopify_id
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  shopify_id: prismic.KeyTextField;
-
-  /**
-   * Slice Zone field in *Product*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/slices
-   */
-  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>;
-}
-
-/**
- * Product document from Prismic
- *
- * - **API ID**: `product`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ProductDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<ProductDocumentData>,
-    "product",
     Lang
   >;
 
@@ -693,6 +668,87 @@ export type SinglePageDocument<Lang extends string = string> =
     Lang
   >;
 
+type SingleProductDocumentDataSlicesSlice =
+  | RecommendedProductsSlice
+  | FaqAccordionSlice
+  | PackageListSlice
+  | SingleProductSlice
+  | HeroSlice
+  | TestimonialListSlice
+  | WarningSlice
+  | IconFeatureListSlice
+  | MarqueeSlice
+  | CollectionGridSlice
+  | CustomerLogosSlice
+  | ContactFormSlice
+  | AlternateGridSlice
+  | NewsletterSlice
+  | GoogleReviewsSlice
+  | GallerySlice;
+
+/**
+ * Content for Single Product documents
+ */
+interface SingleProductDocumentData {
+  /**
+   * Slice Zone field in *Single Product*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_product.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<SingleProductDocumentDataSlicesSlice> /**
+   * Meta Title field in *Single Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: single_product.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Single Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: single_product.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Single Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_product.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Single Product document from Prismic
+ *
+ * - **API ID**: `single_product`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SingleProductDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SingleProductDocumentData>,
+    "single_product",
+    Lang
+  >;
+
 /**
  * Item in *Social Links → Items*
  */
@@ -755,11 +811,12 @@ export type AllDocumentTypes =
   | BlogPostDocument
   | CollectionDocument
   | CollectionsListDocument
+  | FaqDocument
   | HomepageDocument
   | MainNavigationDocument
-  | ProductDocument
   | ProductsListDocument
   | SinglePageDocument
+  | SingleProductDocument
   | SocialLinksDocument;
 
 /**
@@ -1326,6 +1383,61 @@ type CustomerLogosSliceVariation =
 export type CustomerLogosSlice = prismic.SharedSlice<
   "customer_logos",
   CustomerLogosSliceVariation
+>;
+
+/**
+ * Primary content in *FaqAccordion → Default → Primary*
+ */
+export interface FaqAccordionSliceDefaultPrimary {
+  /**
+   * Title field in *FaqAccordion → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_accordion.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *FaqAccordion → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_accordion.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for FaqAccordion Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FaqAccordionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FaqAccordionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FaqAccordion*
+ */
+type FaqAccordionSliceVariation = FaqAccordionSliceDefault;
+
+/**
+ * FaqAccordion Shared Slice
+ *
+ * - **API ID**: `faq_accordion`
+ * - **Description**: FaqAccordion
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FaqAccordionSlice = prismic.SharedSlice<
+  "faq_accordion",
+  FaqAccordionSliceVariation
 >;
 
 /**
@@ -1932,6 +2044,27 @@ export type MarqueeSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *MenuItem → With Children → Primary → Children*
+ */
+export interface MenuItemSliceWithChildrenPrimaryChildrenItem {
+  /**
+   * Link field in *MenuItem → With Children → Primary → Children*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_item.withChildren.primary.children[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    "Primary" | "Secondary"
+  >;
+}
+
+/**
  * Primary content in *MenuItem → Default → Primary*
  */
 export interface MenuItemSliceDefaultPrimary {
@@ -1960,9 +2093,49 @@ export type MenuItemSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *MenuItem → With Children → Primary*
+ */
+export interface MenuItemSliceWithChildrenPrimary {
+  /**
+   * Label field in *MenuItem → With Children → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_item.withChildren.primary.label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Children field in *MenuItem → With Children → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_item.withChildren.primary.children[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  children: prismic.GroupField<
+    Simplify<MenuItemSliceWithChildrenPrimaryChildrenItem>
+  >;
+}
+
+/**
+ * With Children variation for MenuItem Slice
+ *
+ * - **API ID**: `withChildren`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MenuItemSliceWithChildren = prismic.SharedSliceVariation<
+  "withChildren",
+  Simplify<MenuItemSliceWithChildrenPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *MenuItem*
  */
-type MenuItemSliceVariation = MenuItemSliceDefault;
+type MenuItemSliceVariation = MenuItemSliceDefault | MenuItemSliceWithChildren;
 
 /**
  * MenuItem Shared Slice
@@ -2107,6 +2280,17 @@ export interface ProductsGridSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/number
    */
   item_count: prismic.NumberField;
+
+  /**
+   * search bar field in *ProductsGrid → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: products_grid.default.primary.search_bar
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  search_bar: prismic.BooleanField;
 }
 
 /**
@@ -2137,6 +2321,142 @@ type ProductsGridSliceVariation = ProductsGridSliceDefault;
 export type ProductsGridSlice = prismic.SharedSlice<
   "products_grid",
   ProductsGridSliceVariation
+>;
+
+/**
+ * Primary content in *RecommendedProducts → Default → Primary*
+ */
+export interface RecommendedProductsSliceDefaultPrimary {
+  /**
+   * Title field in *RecommendedProducts → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recommended_products.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Shopify product id field in *RecommendedProducts → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recommended_products.default.primary.shopify_product_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  shopify_product_id: prismic.KeyTextField;
+
+  /**
+   * Description field in *RecommendedProducts → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recommended_products.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Use Route field in *RecommendedProducts → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: recommended_products.default.primary.use_route
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  use_route: prismic.BooleanField;
+}
+
+/**
+ * Default variation for RecommendedProducts Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RecommendedProductsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RecommendedProductsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RecommendedProducts*
+ */
+type RecommendedProductsSliceVariation = RecommendedProductsSliceDefault;
+
+/**
+ * RecommendedProducts Shared Slice
+ *
+ * - **API ID**: `recommended_products`
+ * - **Description**: RecommendedProducts
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RecommendedProductsSlice = prismic.SharedSlice<
+  "recommended_products",
+  RecommendedProductsSliceVariation
+>;
+
+/**
+ * Default variation for SingleProduct Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SingleProductSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *SingleProduct*
+ */
+type SingleProductSliceVariation = SingleProductSliceDefault;
+
+/**
+ * SingleProduct Shared Slice
+ *
+ * - **API ID**: `single_product`
+ * - **Description**: SingleProduct
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SingleProductSlice = prismic.SharedSlice<
+  "single_product",
+  SingleProductSliceVariation
+>;
+
+/**
+ * Default variation for SingleProductReview Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SingleProductReviewSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *SingleProductReview*
+ */
+type SingleProductReviewSliceVariation = SingleProductReviewSliceDefault;
+
+/**
+ * SingleProductReview Shared Slice
+ *
+ * - **API ID**: `single_product_review`
+ * - **Description**: SingleProductReview
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SingleProductReviewSlice = prismic.SharedSlice<
+  "single_product_review",
+  SingleProductReviewSliceVariation
 >;
 
 /**
@@ -2384,21 +2704,24 @@ declare module "@prismicio/client" {
       CollectionsListDocument,
       CollectionsListDocumentData,
       CollectionsListDocumentDataSlicesSlice,
+      FaqDocument,
+      FaqDocumentData,
+      FaqDocumentDataItemsItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       MainNavigationDocument,
       MainNavigationDocumentData,
       MainNavigationDocumentDataSlicesSlice,
-      ProductDocument,
-      ProductDocumentData,
-      ProductDocumentDataSlicesSlice,
       ProductsListDocument,
       ProductsListDocumentData,
       ProductsListDocumentDataSlicesSlice,
       SinglePageDocument,
       SinglePageDocumentData,
       SinglePageDocumentDataSlicesSlice,
+      SingleProductDocument,
+      SingleProductDocumentData,
+      SingleProductDocumentDataSlicesSlice,
       SocialLinksDocument,
       SocialLinksDocumentData,
       SocialLinksDocumentDataItemsItem,
@@ -2431,6 +2754,10 @@ declare module "@prismicio/client" {
       CustomerLogosSliceVariation,
       CustomerLogosSliceDefault,
       CustomerLogosSliceNoBorders,
+      FaqAccordionSlice,
+      FaqAccordionSliceDefaultPrimary,
+      FaqAccordionSliceVariation,
+      FaqAccordionSliceDefault,
       GallerySlice,
       GallerySliceDefaultPrimary,
       GallerySliceDefaultItem,
@@ -2463,8 +2790,11 @@ declare module "@prismicio/client" {
       MarqueeSliceDefault,
       MenuItemSlice,
       MenuItemSliceDefaultPrimary,
+      MenuItemSliceWithChildrenPrimaryChildrenItem,
+      MenuItemSliceWithChildrenPrimary,
       MenuItemSliceVariation,
       MenuItemSliceDefault,
+      MenuItemSliceWithChildren,
       NewsletterSlice,
       NewsletterSliceVariation,
       NewsletterSliceDefault,
@@ -2477,6 +2807,16 @@ declare module "@prismicio/client" {
       ProductsGridSliceDefaultPrimary,
       ProductsGridSliceVariation,
       ProductsGridSliceDefault,
+      RecommendedProductsSlice,
+      RecommendedProductsSliceDefaultPrimary,
+      RecommendedProductsSliceVariation,
+      RecommendedProductsSliceDefault,
+      SingleProductSlice,
+      SingleProductSliceVariation,
+      SingleProductSliceDefault,
+      SingleProductReviewSlice,
+      SingleProductReviewSliceVariation,
+      SingleProductReviewSliceDefault,
       TestimonialListSlice,
       TestimonialListSliceDefaultPrimaryTestimonialsItem,
       TestimonialListSliceDefaultPrimary,

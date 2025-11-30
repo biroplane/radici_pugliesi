@@ -15,6 +15,7 @@ export const components = defineSliceZoneComponents({
   customer_logos: defineAsyncComponent(
     () => import("./CustomerLogos/index.vue"),
   ),
+  faq_accordion: defineAsyncComponent(() => import("./FaqAccordion/index.vue")),
   gallery: defineAsyncComponent(() => import("./Gallery/index.vue")),
   google_reviews: defineAsyncComponent(
     () => import("./GoogleReviews/index.vue"),
@@ -29,6 +30,15 @@ export const components = defineSliceZoneComponents({
   newsletter: defineAsyncComponent(() => import("./Newsletter/index.vue")),
   package_list: defineAsyncComponent(() => import("./PackageList/index.vue")),
   products_grid: defineAsyncComponent(() => import("./ProductsGrid/index.vue")),
+  recommended_products: defineAsyncComponent(
+    () => import("./RecommendedProducts/index.vue"),
+  ),
+  single_product: defineAsyncComponent(
+    () => import("./SingleProduct/index.vue"),
+  ),
+  single_product_review: defineAsyncComponent(
+    () => import("./SingleProductReview/index.vue"),
+  ),
   testimonial_list: defineAsyncComponent(() => import("./Reviews/index.vue")),
   warning: defineAsyncComponent(() => import("./Warning/index.vue")),
 });

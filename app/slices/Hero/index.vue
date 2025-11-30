@@ -24,7 +24,7 @@ defineProps(
         />
       </div>
       <div
-        class="stacked self-end w-full bg-white/30 backdrop-blur-lg px-4 py-8 flex flex-col gap-4 items-start"
+        class="stacked self-end w-full bg-primary-900/60 backdrop-blur-lg px-4 py-8 flex flex-col gap-4 items-start"
       >
         <h1 class="text-4xl font-heading">
           {{ slice.primary.title }}
