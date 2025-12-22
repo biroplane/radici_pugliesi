@@ -79,7 +79,7 @@ function sortProducts(e: any) {
               </USlideover>
             </div>
             <div
-              class="bg-white py-2 px-4 rounded-2xl shadow order-last md:order-first sticky top-4 h-fit"
+              class="bg-white py-2 px-4 rounded-2xl shadow order-last md:order-first sticky top-16 h-fit"
             >
               <SearchBar />
             </div>

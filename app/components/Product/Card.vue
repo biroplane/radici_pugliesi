@@ -26,7 +26,7 @@ function addToWishlist(id: string) {
         />
       </div>
       <div class="content py-6 px-4 flex-grow">
-        <h3 class="font-medium text-primary-500 text-sm lg:text-md py-3 leading-5">
+        <h3 class="font-medium text-primary-500 text-sm lg:text-lg py-3 leading-5">
           {{ product.title }}
         </h3>
         <div
@@ -55,7 +55,7 @@ function addToWishlist(id: string) {
         "
         @click="addToWishlist(product.id)"
       />
-      <AddToCart product />
+      <AddToCart :product />
     </footer>
   </div>
 </template>

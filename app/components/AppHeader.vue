@@ -8,7 +8,7 @@ const productStore = useProductStore();
       <ClientOnly>
         <div class="flex items-center gap-2">
           <AppLogo class="flex-none" />
-          <div class="font-heading text-primary-800 text-2xl hidden md:block">
+          <div class="font-heading italic text-primary-800 text-lg hidden md:block">
             Radici Pugliesi
           </div>
         </div>

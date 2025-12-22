@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const emits = defineEmits(["update"]);
-const value = ref([25, 75]);
+const value = ref([0, 1000]);
 watch(value, (newValue) => {
   emits("update", newValue);
 });

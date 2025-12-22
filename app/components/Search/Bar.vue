@@ -2,9 +2,14 @@
 import type { AccordionItem } from '@nuxt/ui'
 
 const emits = defineEmits(['search'])
-const openTabs = ref(['2', '1', '0'])
+const openTabs = ref(['2', '1', '0', '3'])
 const query = ref([])
 const items = [
+  {
+    label: 'Ordina',
+    trailingIcon: 'i-lucide-plus',
+    component: defineAsyncComponent(() => import('../Product/Sort.vue')),
+  },
   {
     label: 'Collezione',
     trailingIcon: 'i-lucide-plus',
@@ -19,11 +24,6 @@ const items = [
     label: 'Prezzo',
     trailingIcon: 'i-lucide-plus',
     component: defineAsyncComponent(() => import('./Price.vue')),
-  },
-  {
-    label: 'Ordina',
-    trailingIcon: 'i-lucide-plus',
-    component: defineAsyncComponent(() => import('../Product/Sort.vue')),
   },
 ] satisfies AccordionItem[]
 

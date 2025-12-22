@@ -6,7 +6,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   css: ['~/assets/css/app.css', '~/assets/css/typography.css'],
   devtools: { enabled: true },
-  ssr: true,
   app: {
     head: {
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
@@ -18,11 +17,15 @@ export default defineNuxtConfig({
   },
   fonts: {
     families: [
-      { name: 'IBM Plex Mono', provider: 'google' },
-      { name: 'Croissant One', provider: 'google' },
+      { name: 'Roboto', provider: 'google' },
+      { name: 'Playfair Display', provider: 'google' },
       { name: 'Libre Baskerville', provider: 'google' },
       { name: 'Style Script', provider: 'google' },
     ],
+  },
+  image: {
+    domains: ['*.myshopify.com'],
+
   },
   modules: [
     '@nuxt/ui',

@@ -30,7 +30,7 @@ const faqs = computed(
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="max-w-4xl mx-auto py-12"
+    class="container py-12"
   >
     <div class="text-center mb-6">
       <h2 class="slice-title">

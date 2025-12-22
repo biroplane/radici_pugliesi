@@ -29,26 +29,27 @@
   --color-secondary-900: oklch(0.36 0.039 248.95);
   --color-secondary-950: oklch(0.25 0.027 246.75);
 
-  --font-body: 'IBM Plex Mono', sans-serif;
-  --font-heading: 'Style Script', script;
+  --font-body: 'Roboto', sans-serif;
+  --font-heading: 'Playfair Display', script;
   /* --font-heading: 'Nordminne', script; */
   
 }
 @utility container {
-  @apply mx-auto max-w-sm px-8;
+  @apply mx-auto w-full px-4;
 
+  @variant sm {
+    @apply px-6 max-w-2xl ;
+  }
   @variant md {
-    padding-inline: var(--spacing-6);
-    max-width: var(--breakpoint-lg);
+    @apply px-8 max-w-5xl ;
   }
   @variant lg {
-    max-width: var(--breakpoint-xl);
-    padding-inline: var(--spacing-8);
+    @apply px-0 max-w-5xl ;
   }
 }
   
-  @utility slice-title {
-    @apply font-heading text-4xl leading-none mb-6;
+@utility slice-title {
+    @apply font-heading text-4xl leading-none mb-6 italic font-light;
   
   @variant sm {
     font-size: var(--text-4xl);

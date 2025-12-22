@@ -10,7 +10,7 @@ const results = ref<any[]>([]);
 </script>
 
 <template>
-  <div class="relative">
+  <div class="md:relative">
     <UButton
       icon="i-system-uicons-search"
       variant="ghost"
@@ -18,7 +18,11 @@ const results = ref<any[]>([]);
       @click="isOpen = !isOpen"
     />
     <Transition name="slide-in" appear mode="in-out">
-      <UCard v-if="isOpen" ref="searchCard" class="absolute right-0 min-w-96 shadow-lg">
+      <UCard
+        v-if="isOpen"
+        ref="searchCard"
+        class="absolute left-0 md:left-auto w-full md:right-0 md:min-w-96 shadow-lg"
+      >
         <UInput placeholder="Search" icon="i-system-uicons-search" class="w-full" />
 
         <ul
@@ -37,3 +41,16 @@ const results = ref<any[]>([]);
     </Transition>
   </div>
 </template>
+
+<style scoped>
+.slide-in-enter-active,
+.slide-in-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-in-enter-from,
+.slide-in-leave-to {
+  transform: translateY(30%);
+  opacity: 0;
+}
+</style>

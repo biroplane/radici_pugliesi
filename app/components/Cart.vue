@@ -33,8 +33,15 @@ watch(
 </script>
 
 <template>
-  <USlideover v-model:open="cartStore.drawer" title="Carrello" description="Cart drawer">
-    <UButton icon="i-system-uicons-cart" variant="ghost" color="neutral" />
+  <USlideover
+    v-if="cartStore.cart?.lines?.nodes?.length > 0"
+    v-model:open="cartStore.drawer"
+    title="Carrello"
+    description="Cart drawer"
+  >
+    <UChip :text="cartStore.totalItems" size="3xl">
+      <UButton icon="i-system-uicons-cart" variant="ghost" color="neutral" />
+    </UChip>
     <template #description>
       <div
         v-if="cartStore.cart.lines?.nodes.length"
